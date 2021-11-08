@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Back End Assessment</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body class="container">
+    <button id="complimentButton">Get a compliment</button>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      document.getElementById("complimentButton").onclick = function () {
+        axios.get("http://localhost:4000/api/compliment/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+      </script>
+      <button id="fortuneButton">Get your fortune</button>
+      <script>
+        document.getElementById("fortuneButton").onclick = function() {
+          axios.get("http://localhost:4000/api/fortune/").then(function (response){
+            const data = response.data
+            alert(data)
+          })
+        }
+      </script>
+         <button id="inspireButton">Get an inspiring quote</button>
+        <script>
+          document.getElementById("inspireButton").onclick = function() {
+            axios.get("http://localhost:4000/api/inspire/").then(function (response){
+              const data = response.data
+              alert(data)
+            })
+          }
+          </script>
+       <!-- space holder for drop down list -->
+          <h3>Goal Oriented Books</h3>
+          
+            <p>"Awaken The Giant Within, by Anthony Robbins"
+            "Broken Eyes, Unbroken Spirit, by David Meador"
+            "EntreLeadership, by Dave Ramsey"
+            "Good To Great, by Jim Collins"
+            "How To Win Friends And Influence People, by Dale Carnegie"
+            "Principle-Centered Leadership, by Stephen Covey"</p>
+        
+
+        
+        <form>
+
+          <input type="text" id="title" placeholder="Book Suggestion Here"></input>
+          <input type="text" id="author" placeholder="Who is the Author?">
+
+        </form>
+        <!-- <button type="submit">Suggest Book</button> -->
+        <button id="submitButton">Suggest Book</button>
+        <script>
+          document.getElementById("submitButton").onclick = function() {
+            axios.post("http://localhost:4000/api/books/")
+          }
+          </script>
+      </body>
+  </body>
+</html>
